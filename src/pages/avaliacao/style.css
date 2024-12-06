@@ -1,0 +1,73 @@
+body {
+    background-color: #000; /* Fundo preto */
+    color: #fff; /* Texto branco */
+    font-family: sans-serif; /* Escolha uma fonte sans-serif adequada */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.form-container {
+    background-color: #111; /* Fundo cinza escuro para o formulário */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Adiciona uma sombra */
+    width: 80%; /* Ajuste a largura conforme necessário */
+    max-width: 600px; /* Define uma largura máxima */
+}
+
+h1 {
+    font-size: 2rem;
+    color: #f8e71c; /* Título amarelo */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-field {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block; /* Labels em sua própria linha */
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+
+input[type="number"] {
+    width: calc(100% - 22px); /* Ajuste a largura para se encaixar no contêiner */
+    padding: 10px;
+    border: 1px solid #f8e71c; /* Borda amarela */
+    color: #fff; /* Texto branco na entrada */
+    background-color: #222; /* Fundo cinza escuro na entrada */
+    border-radius: 5px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+button {
+    background-color: #f8e71c; /* Botão amarelo */
+    color: #000;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    width: 100%; /* Botão com largura total */
+    transition: background-color 0.3s ease; /* Transição suave para hover */
+}
+
+button:hover {
+    background-color: #d9b800; /* Amarelo mais escuro ao passar o mouse */
+}

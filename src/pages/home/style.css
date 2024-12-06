@@ -1,0 +1,68 @@
+/* Estilos Gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+    color: #f8e71c;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-width: 1200px;
+    width: 90%;
+}
+
+.card {
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.3s ease;
+}
+
+.card.yellow {
+    background-color: #f8e71c;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.card.black {
+    background-color: #1c1c1c;
+    transform: scale(0.9);
+}
+
+.card.black.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.9); /* Efeito de "escondido" */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    h2, h3 {
+        font-size: 1.1rem;
+    }
+    .card {
+        padding: 1rem;
+    }
+
+    .card-container {
+        grid-template-columns: 1fr; /* Apenas 1 card por linha em telas pequenas */
+    }
+}
+
