@@ -1,161 +1,79 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./style.css";
-import {Link} from "react-router-dom";
 
 const Metas = () => {
-    // Estados para controlar a visibilidade de cada grupo
     const [visibleGroup, setVisibleGroup] = useState(null);
 
-    // Função para alternar visibilidade
     const toggleGroup = (group) => {
-        setVisibleGroup(visibleGroup === group ? null : group); // Alterna o estado
+        setVisibleGroup(visibleGroup === group ? null : group);
     };
 
+    const groups = [
+        {
+            id: "group1",
+            title: "Estabelecimento de Metas",
+            content: "A importância de definir metas claras e específicas para guiar seu desenvolvimento pessoal.",
+            verse: "O coração do homem planeja o seu caminho, mas o Senhor determina os seus passos. - Provérbios 16:9"
+        },
+        {
+            id: "group2",
+            title: "Autoconhecimento",
+            content: "Compreender suas forças e fraquezas é essencial para o crescimento efetivo.",
+            verse: "Pois assim como um homem pensa em seu coração, assim ele é. - Provérbios 23:7"
+        },
+        {
+            id: "group3",
+            title: "Leitura e Aprendizado",
+            content: "A leitura e o aprendizado contínuo como pilares para o desenvolvimento pessoal.",
+            verse: "Em todo o teu conhecimento, adquire o entendimento. - Provérbios 4:7"
+        },
+        {
+            id: "group4",
+            title: "Gerenciamento de Prioridades",
+            content: "Técnicas para otimizar o uso do tempo e aumentar a produtividade.",
+            verse: "Aproveite bem o tempo, porque os dias são maus. - Efésios 5:16"
+        },
+        {
+            id: "group5",
+            title: "Habilidades Interpessoais",
+            content: "A habilidade de se comunicar e construir relacionamentos saudáveis.",
+            verse: "No muito falar não falta transgressão, mas o que modera os lábios é sábio. - Provérbios 10:19"
+        },
+        {
+            id: "group6",
+            title: "Mindfulness e Autocuidado",
+            content: "A prática de mindfulness e a importância do autocuidado para o bem-estar.",
+            verse: "Mais vale um punhado de descanso do que duas mãos-cheias de trabalho e correria. - Eclesiastes 4:6"
+        },
+        {
+            id: "group7",
+            title: "Vida Espiritual",
+            content: "A exploração das crenças e a prática espiritual como fonte de propósito.",
+            verse: "Buscai ao Senhor enquanto se pode achar, invocai-o enquanto está perto. - Isaías 55:6"
+        },
+        {
+            id: "group8",
+            title: "Condicionamento Físico",
+            content: "A prática de exercícios e a alimentação saudável como fundamentais para a saúde física e mental.",
+            verse: "Não sabeis que o vosso corpo é santuário do Espírito Santo, que habita em vós? - 1 Coríntios 6:19"
+        }
+    ];
     return (
         <div className="card-container">
-            <div className="card yellow" onClick={() => toggleGroup("group1")}>
-                <h2>Estabelecimento de Metas</h2>
-            </div>
-            {visibleGroup === "group1" && (
-                <>
-                    <div className="card black">
-                        <h3>CONTEÚDO:</h3>
-                        <p>A importância de definir metas claras e específicas para guiar seu desenvolvimento
-                            pessoal.</p>
-                    </div>
-                    <div className="card black">
-                        <h3>PROVÉRBIO BÍBLICO:</h3>
-                        <p>"O CORAÇÃO DO HOMEM PLANEJA O SEU CAMINHO, MAS O
-                            SENHOR DETERMINA OS SEUS PASSOS." - PROVÉRBIOS 16:9</p>
-                    </div>
-                </>
-            )}
-
-            <div className="card yellow" onClick={() => toggleGroup("group2")}>
-                <h2>Autoconhecimento</h2>
-            </div>
-            {visibleGroup === "group2" && (
-                <>
-                    <div className="card black">
-                        <h3>CONTEÚDO:</h3>
-                        <p> COMPREENDER SUAS FORÇAS E FRAQUEZAS É ESSENCIAL PARA O
-                            CRESCIMENTO EFETIVO.</p>
-                    </div>
-                    <div className="card black">
-                        <h3>PROVÉRBIO BÍBLICO:</h3>
-                        <p>"POIS ASSIM COMO UM HOMEM PENSA EM SEU CORAÇÃO,
-                            ASSIM ELE É." - PROVÉRBIOS 23:7</p>
-                    </div>
-                </>
-            )}
-
-            <div className="card yellow" onClick={() => toggleGroup("group3")}>
-                <h2>Leitura e Aprendizado</h2>
-            </div>
-            {visibleGroup === "group3" && (
-                <>
-                    <div className="card black">
-                        <h3>CONTEÚDO:</h3>
-                        <p>A LEITURA E O APRENDIZADO CONTÍNUO COMO PILARES PARA O
-                            DESENVOLVIMENTO PESSOAL.</p>
-                    </div>
-                    <div className="card black">
-                        <h3>PROVÉRBIO BÍBLICO:</h3>
-                        <p>"EM TODO O TEU CONHECIMENTO, ADQUIRE O ENTENDIMENTO." -
-                            PROVÉRBIOS 4:7</p>
-                    </div>
-                </>
-            )}
-
-            <div className="card yellow" onClick={() => toggleGroup("group4")}>
-                <h2>Gerenciamento de prioridades</h2>
-            </div>
-            {visibleGroup === "group4" && (
-                <>
-                    <div className="card black">
-                        <h3>CONTEÚDO:</h3>
-                        <p>TÉCNICAS PARA OTIMIZAR O USO DO TEMPO E AUMENTAR A
-                            PRODUTIVIDADE.</p>
-                    </div>
-                    <div className="card black">
-                        <h3>PROVÉRBIO BÍBLICO:</h3>
-                        <p>"APROVEITE BEM O TEMPO, PORQUE OS DIAS SÃO MAUS." - EFÉSIOS 5:16</p>
-                    </div>
-                </>
-            )}
-
-            <div className="card yellow" onClick={() => toggleGroup("group5")}>
-                <h2>Habilidades Interpessoais</h2>
-            </div>
-            {visibleGroup === "group5" && (
-                <>
-                    <div className="card black">
-                        <h3>CONTEÚDO:</h3>
-                        <p>A HABILIDADE DE SE COMUNICAR E CONSTRUIR RELACIONAMENTOS SAUDÁVEIS.</p>
-                    </div>
-                    <div className="card black">
-                        <h3>PROVÉRBIO BÍBLICO:</h3>
-                        <p>"NO MUITO FALAR NÃO FALTA TRANSGRESSÃO, MAS O QUE
-                            MODERA OS LÁBIOS É SÁBIO." - PROVÉRBIOS 10:19</p>
-                    </div>
-                </>
-            )}
-
-            <div className="card yellow" onClick={() => toggleGroup("group6")}>
-                <h2>Mindfulness e Autocuidado</h2>
-            </div>
-            {visibleGroup === "group6" && (
-                <>
-                    <div className="card black">
-                        <h3>CONTEÚDO:</h3>
-                        <p>A PRÁTICA DE MINDFULNESS E A IMPORTÂNCIA DO AUTOCUIDADO PARA O BEM-ESTAR.</p>
-                    </div>
-                    <div className="card black">
-                        <h3>PROVÉRBIO BÍBLICO:</h3>
-                        <p>"MAIS VALE UM PUNHADO DE DESCANSO DO QUE
-                            DUAS MÃO-CHEIAS DE TRABALHO E CORRERIA." - ECLESIASTES 4:6</p>
-                    </div>
-                </>
-            )}
-
-            <div className="card yellow" onClick={() => toggleGroup("group7")}>
-                <h2>Vida espiritual</h2>
-            </div>
-            {visibleGroup === "group7" && (
-                <>
-                    <div className="card black">
-                        <h3>CONTEÚDO:</h3>
-                        <p>A EXPLORAÇÃO DAS CRENÇAS E A PRÁTICA ESPIRITUAL COMO FONTE DE
-                            PROPÓSITO.</p>
-                    </div>
-                    <div className="card black">
-                        <h3>PROVÉRBIO BÍBLICO:</h3>
-                        <p>"BUSCAI AO SENHOR ENQUANTO SE PODE ACHAR, INVOCAI-O
-                            ENQUANTO ESTÁ PERTO." - ISAÍAS 55:6</p>
-                    </div>
-                </>
-            )}
-
-            <div className="card yellow" onClick={() => toggleGroup("group8")}>
-                <h2>Condicionamento Físico</h2>
-            </div>
-            {visibleGroup === "group8" && (
-                <>
-                    <div className="card black">
-                        <h3>CONTEÚDO:</h3>
-                        <p>A PRÁTICA DE EXERCÍCIOS E A ALIMENTAÇÃO SAUDÁVEL
-                            COMO FUNDAMENTAIS PARA A SAÚDE FÍSICA E MENTAL.</p>
-                    </div>
-                    <div className="card black">
-                        <h3>PROVÉRBIO BÍBLICO:</h3>
-                        <p>"NÃO SABEIS QUE O VOSSO CORPO É SANTUÁRIO
-                            DO ESPÍRITO SANTO, QUE HABITA EM VÓS?" - 1 CORÍNTIOS 6:19</p>
-                    </div>
-                </>
-            )}
-
-            <Link className="button" to="/Cadastro">Fazer Avaliação</Link>
-
+            {groups.map(({ id, title, content,verse }) => (
+                <div key={id} className="card-section">
+                    <button className="card" onClick={() => toggleGroup(id)}>
+                        <span>{title}</span>
+                        <span>{visibleGroup === id ? "-" : "+"}</span>
+                    </button>
+                    {visibleGroup === id && (
+                        <div className="details">
+                            <p>{content}</p>
+                            <p>{verse}</p>
+                        </div>
+                    )}
+                </div>
+            ))}
         </div>
     );
 };

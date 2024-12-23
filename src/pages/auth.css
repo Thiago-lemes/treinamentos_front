@@ -1,16 +1,24 @@
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    color: #fff;
+    font-family: sans-serif;
 }
 
 .form-container {
+    margin-top: 70px;
     background-color: #111;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    width: 80%;
+    width: 500px;
     max-width: 600px;
+    box-sizing: border-box;
 }
 
 h1 {
@@ -20,31 +28,42 @@ h1 {
     margin-bottom: 20px;
 }
 
-p {
+p  {
     font-size: 1rem;
     text-align: center;
     margin-bottom: 30px;
 }
 
-.form-field label {
-    font-size: 1rem;
-    display: block;
-    margin-bottom: 5px;
-    color: #fff;
+.form-field {
+    margin-bottom: 15px;
 }
 
-input[type="number"] {
+label {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+input {
     width: 100%;
+    margin-bottom: 35px;
     padding: 10px;
     border: 1px solid #f8e71c;
     color: #fff;
     background-color: #222;
     border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input:focus {
+    outline: none;
+    border-color: #d9b800;
 }
 
 button {
     background-color: #f8e71c;
     color: #000;
+    margin-top: 20px;
     padding: 12px 20px;
     border: none;
     border-radius: 5px;
@@ -56,4 +75,18 @@ button {
 
 button:hover {
     background-color: #d9b800;
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
 }

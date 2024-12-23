@@ -4,7 +4,7 @@ import "./style.css";
 
 const Avalicao = () => {
     const location = useLocation();
-    const usuarioId = location.state?.usuarioId; // Captura o ID do usuário
+    const usuarioId = location.state?.usuarioId;
     console.log("ID do usuário recebido:", usuarioId);
 
     const [formData, setFormData] = useState({
@@ -36,7 +36,7 @@ const Avalicao = () => {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    usuarioId, // Envia o ID do usuário junto com os dados
+                    usuarioId,
                     ...formData,
                 }),
             });
@@ -56,114 +56,107 @@ const Avalicao = () => {
             <h1>Avaliação</h1>
             <p>DÊ UMA NOTA DE 0-10 PARA CADA UM DOS ITENS PROPOSTOS A SEGUIR:</p>
             <form onSubmit={handleSubmit}>
-                <div className="form-field">
-                    <label>1) ESTABELECIMENTO DE METAS</label>
-                    <input
-                        type="number"
-                        name="metas"
-                        min="0"
-                        max="10"
-                        value={formData.metas}
-                        onChange={handleChange}
-                        required
-                    />
+                <div className="grid-container">
+                    <div className="form-field">
+                        <label>1) ESTABELECIMENTO DE METAS</label>
+                        <input
+                            type="number"
+                            name="metas"
+                            min="0"
+                            max="10"
+                            value={formData.metas}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="form-field">
+                        <label>2) CONDICIONAMENTO FÍSICO</label>
+                        <input
+                            type="number"
+                            name="autoconhecimento"
+                            min="0"
+                            max="10"
+                            value={formData.autoconhecimento}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="form-field">
+                        <label>3) LEITURA E APRENDIZADO</label>
+                        <input
+                            type="number"
+                            name="leitura"
+                            min="0"
+                            max="10"
+                            value={formData.leitura}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="form-field">
+                        <label>4) GERENCIAMENTO DE PRIORIDADES</label>
+                        <input
+                            type="number"
+                            name="gerenciamento"
+                            min="0"
+                            max="10"
+                            value={formData.gerenciamento}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="form-field">
+                        <label>5) HABILIDADES INTERPESSOAIS</label>
+                        <input
+                            type="number"
+                            name="habilidades"
+                            min="0"
+                            max="10"
+                            value={formData.habilidades}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="form-field">
+                        <label>6) MINDFULNESS E AUTOCUIDADO</label>
+                        <input
+                            type="number"
+                            name="mindfulness"
+                            min="0"
+                            max="10"
+                            value={formData.mindfulness}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="form-field">
+                        <label>7) VIDA ESPIRITUAL</label>
+                        <input
+                            type="number"
+                            name="vidaEspiritual"
+                            min="0"
+                            max="10"
+                            value={formData.vidaEspiritual}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="form-field">
+                        <label>8) AUTOCONHECIMENTO</label>
+                        <input
+                            type="number"
+                            name="condicionamento"
+                            min="0"
+                            max="10"
+                            value={formData.condicionamento}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
                 </div>
-
-                <div className="form-field">
-                    <label>2) AUTOCONHECIMENTO</label>
-                    <input
-                        type="number"
-                        name="autoconhecimento"
-                        min="0"
-                        max="10"
-                        value={formData.autoconhecimento}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-
-                <div className="form-field">
-                    <label>3) LEITURA E APRENDIZADO</label>
-                    <input
-                        type="number"
-                        name="leitura"
-                        min="0"
-                        max="10"
-                        value={formData.leitura}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-
-                <div className="form-field">
-                    <label>4) GERENCIAMENTO DE PRIORIDADES</label>
-                    <input
-                        type="number"
-                        name="gerenciamento"
-                        min="0"
-                        max="10"
-                        value={formData.gerenciamento}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-
-                <div className="form-field">
-                    <label>5) HABILIDADES INTERPESSOAIS</label>
-                    <input
-                        type="number"
-                        name="habilidades"
-                        min="0"
-                        max="10"
-                        value={formData.habilidades}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-
-                <div className="form-field">
-                    <label>6) MINDFULNESS E AUTOCUIDADO</label>
-                    <input
-                        type="number"
-                        name="mindfulness"
-                        min="0"
-                        max="10"
-                        value={formData.mindfulness}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-
-                <div className="form-field">
-                    <label>7) VIDA ESPIRITUAL</label>
-                    <input
-                        type="number"
-                        name="vidaEspiritual"
-                        min="0"
-                        max="10"
-                        value={formData.vidaEspiritual}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-
-                <div className="form-field">
-                    <label>8) CONDICIONAMENTO FÍSICO</label>
-                    <input
-                        type="number"
-                        name="condicionamento"
-                        min="0"
-                        max="10"
-                        value={formData.condicionamento}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-
                 <button type="submit">Enviar Avaliação</button>
             </form>
         </div>
-
     );
 };
 

@@ -7,62 +7,63 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     min-height: 100vh;
-}
-h3 {
-    margin: 0 0 0.5rem;
-    font-size: 1.2rem;
-    color: #f8e71c;
 }
 
 .card-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    max-width: 1200px;
-    width: 90%;
+    max-width: 800px;
+    width: 100%;
+    margin: 2rem auto;
+}
+
+.card-section {
+    border-bottom: 1px solid #333; /* Divisores entre as seções */
+    padding: 1rem 0;
 }
 
 .card {
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    transition: transform 0.2s ease, opacity 0.3s ease;
-}
-
-.card.yellow {
-    background-color: #f8e71c;
-    color: #000;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    background-color: #000;
+    border: none;
+    color: #f8e71c;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card:hover {
+    background-color: #333;
+}
+
+.details {
+    margin-top: 0.5rem;
+    padding-left: 1rem;
+}
+
+.details p {
     font-size: 1rem;
+    line-height: 1.5;
+    color: #ddd;
 }
 
-.card.black {
-    background-color: #1c1c1c;
-    transform: scale(0.9);
-}
-
-.card.black.hidden {
-    opacity: 0;
-    pointer-events: none;
-    transform: scale(0.9); /* Efeito de "escondido" */
+h2 {
+    font-size: 1.5rem;
+    color: #f8e71c;
+    margin: 0;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
-    h2, h3 {
-        font-size: 1.1rem;
-    }
-    .card {
-        padding: 1rem;
+    h2 {
+        font-size: 1.2rem;
     }
 
-    .card-container {
-        grid-template-columns: 1fr; /* Apenas 1 card por linha em telas pequenas */
+    .card {
+        font-size: 1rem;
     }
 }
-
