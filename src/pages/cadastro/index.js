@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import "../auth.css";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const Cadastro = () => {
     const [formData, setFormData] = useState({
@@ -16,12 +16,13 @@ const Cadastro = () => {
 
     // Função para atualizar o estado com base na mudança dos campos
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        const {name, value} = e.target;
         setFormData({
             ...formData,
             [name]: value,
         });
     };
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -40,11 +41,15 @@ const Cadastro = () => {
                 const usuario = await response.json();
                 console.log("Usuário criado com sucesso:", usuario);
 
+                // Armazenando o token no localStorage (ou sessionStorage)
+                localStorage.setItem('token', usuario.token);
+                // Adicionando o usuarioId no localStorage
+                localStorage.setItem('usuarioId', usuario.id);
                 // Salva o usuário criado no estado
                 setUsuarioCriado(usuario);
 
                 // Redireciona para outra tela ou exibe os dados na mesma tela
-                navigate("/Avalicao", { state: { usuario } }); // Passa o usuário para a próxima tela
+                navigate("/Avalicao", {state: {usuario}}); // Passa o usuário para a próxima tela
             } else {
                 // Exibe erro caso o cadastro falhe
                 const errorData = await response.json();

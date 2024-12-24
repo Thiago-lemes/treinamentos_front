@@ -4,7 +4,7 @@ import "./style.css";
 
 const Avalicao = () => {
     const location = useLocation();
-    const usuarioId = location.state?.usuarioId;
+    const usuarioId = location.state?.usuarioId || localStorage.getItem("usuarioId"); // Garantir que o usuarioId venha do localStorage ou do state
     console.log("ID do usuário recebido:", usuarioId);
 
     const [formData, setFormData] = useState({
@@ -16,6 +16,7 @@ const Avalicao = () => {
         mindfulness: "",
         vidaEspiritual: "",
         condicionamento: "",
+        usuarioId: usuarioId,  // Passa o usuarioId para o formData
     });
 
     const handleChange = (e) => {
@@ -29,20 +30,29 @@ const Avalicao = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        const token = localStorage.getItem("token"); // Obtém o token do localStorage
+
+        if (!token) {
+            console.error("Token não encontrado. Por favor, faça login novamente.");
+            return;
+        }
+
         try {
             const response = await fetch("http://localhost:8080/avaliacao/create", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`, // Adiciona o token no cabeçalho
                 },
                 body: JSON.stringify({
-                    usuarioId,
+                    usuarioId, // Passa o usuarioId para a requisição
                     ...formData,
                 }),
             });
 
             if (response.ok) {
                 console.log("Avaliação enviada com sucesso!");
+                // Aqui você pode adicionar um feedback para o usuário, como redirecionar ou exibir uma mensagem.
             } else {
                 console.error("Erro ao enviar a avaliação:", response.statusText);
             }
