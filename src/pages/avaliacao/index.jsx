@@ -16,7 +16,7 @@ const Avalicao = () => {
         mindfulness: "",
         vidaEspiritual: "",
         condicionamento: "",
-        usuarioId: usuarioId,  // Passa o usuarioId para o formData
+        usuarioId: usuarioId
     });
 
     const handleChange = (e) => {
