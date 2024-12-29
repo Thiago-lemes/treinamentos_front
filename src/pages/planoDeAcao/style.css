@@ -76,7 +76,10 @@ button {
 button:hover {
     background-color: #d9b800;
 }
-
+.error {
+    color: red;
+    font-size: 0.9rem;
+}
 @media (max-width: 768px) {
     .form-container {
         width: 90%;

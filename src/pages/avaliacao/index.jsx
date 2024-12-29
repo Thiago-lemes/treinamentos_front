@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import "./style.css";
 
 const Avalicao = () => {
     const location = useLocation();
     const usuarioId = location.state?.usuarioId || localStorage.getItem("usuarioId"); // Garantir que o usuarioId venha do localStorage ou do state
+    const navigate = useNavigate();
     console.log("ID do usuário recebido:", usuarioId);
 
     const [formData, setFormData] = useState({
@@ -52,6 +53,9 @@ const Avalicao = () => {
 
             if (response.ok) {
                 console.log("Avaliação enviada com sucesso!");
+                navigate("/PlanoDeAcao", {
+                    state: { token, usuarioId }, // Passa o token e o usuarioId para a próxima tela
+                });
                 // Aqui você pode adicionar um feedback para o usuário, como redirecionar ou exibir uma mensagem.
             } else {
                 console.error("Erro ao enviar a avaliação:", response.statusText);
